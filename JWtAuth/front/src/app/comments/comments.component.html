@@ -1,0 +1,21 @@
+<div class="row mt-5">
+    <div class="alert alert-danger" *ngIf='errorMessage'>
+        {{errorMessage}}
+    </div>
+    <div class="col-md-4 mb-3" *ngFor="let comment of commentsFetched">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{comment.name}}
+                </h5>
+                <p class="card-text">
+                    {{comment.body}}
+                </p>
+                <a href="#" class="btn btn-warning">See Comment</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{comment.email}}
+            </div>
+        </div>
+    </div>
+</div>

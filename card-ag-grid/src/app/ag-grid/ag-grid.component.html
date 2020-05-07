@@ -1,0 +1,20 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/23.1.0/styles/ag-grid.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ag-grid/23.1.0/styles/ag-theme-alpine-dark.min.css" rel="stylesheet" />
+<button (click)="onBtPrint()" class="btn btn-info">Print</button>
+<ag-grid-angular
+    style="width:100%; height: 500px;"
+    class="ag-theme-alpine-dark"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    
+    (gridReady)="onGridReady($event)"
+    id="mygrid"
+    >
+    <!-- [pagination]="true"
+    [paginationAutoPageSize]="true" -->
+</ag-grid-angular>
+<div class="align-self-center">
+    <button type="button" class="btn btn-light align-self-center"(click)="backward()"><</button>
+    <button type="button" class="btn btn-light align-self-center" (click)="forward()">></button>
+</div>
+

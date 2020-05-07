@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="alert alert-danger" *ngIf="errorMsg">
+        {{errorMsg}}
+    </div>
+    <div class="row">
+        <div class="col-md">
+        </div>
+        <div class="col-md">
+            <table id="mytable" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                    </tr>
+                </thead>
+                <tr *ngFor="let user of fetchedData">
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td><input type="button" value="Edit" class="btn btn-outline-info" (click)="editTDF($event)"></td>
+                    <td><input type="button" value="Delete" class="btn btn-outline-danger "(click)="ondelete($event)"></td>
+                </tr>
+            </table>
+            <input type="button" value="Add Data" class="btn btn-outline-success" (click)='navigateAdd()'>
+        </div>
+        <div class="col-md">
+        </div>
+      </div>
+</div>

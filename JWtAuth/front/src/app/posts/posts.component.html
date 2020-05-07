@@ -1,0 +1,18 @@
+<div class="row mt-5">
+    <div class="alert alert-danger" *ngIf="errorMessage">
+        {{errorMessage}}
+    </div>
+    <div class="col-md-4 mb-3" *ngFor="let post of postsFetched">
+        <div class="card text-center">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{post.title}}
+                </h5>
+                <p class="card-text">
+                    {{post.body}}
+                </p>
+                <a href="#" class="btn btn-info">See Post</a>
+            </div>
+        </div>
+    </div>
+</div>

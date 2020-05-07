@@ -1,0 +1,29 @@
+<button printSectionId="print-section" class="btn btn-info" [useExistingCss]="true" ngxPrint>Print</button>
+<div id="print-section" #print>
+    <div class="row mt-5">
+    
+        <div class="col-md-4 mb-3" *ngFor="let item of jsonData | paginate:{itemsPerPage:9, currentPage:p}">
+            <div class="card text-center">
+                <div class="card-body">
+                    <img src={{item.image}} class="card-img-top" alt="image" height="250px">
+                    <h5 class="card-title">
+                        {{item.name}}
+                    </h5>
+                    <p class="card-text">
+                        {{item.email}} 
+                        <br>
+                        {{item.phone}}
+                        <br>
+                        {{item.address}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- <pagination-controls class="mx-auto lead" (pageChange)="p = $event"></pagination-controls>     -->
+        <div class="align-self-center">
+            <button type="button" class="btn btn-light align-self-center"(click)="backward()"><</button>
+            <button type="button" class="btn btn-light align-self-center" (click)="forward()">></button>
+        </div>
+    </div>
+</div>      

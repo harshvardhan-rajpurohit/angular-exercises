@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <h2>Registration form</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onsubmit()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" class="form-control" placeholder="Enter name" formControlName="name"
+            [class.is-invalid]="name.invalid && name.touched">
+            <div *ngIf="name.invalid && name.touched">
+                <small *ngIf="name.errors?.minLength" class="text-danger">Name must be 3 or more characters long.</small>
+                <small *ngIf="name.errors?.required"  class="text-danger">Name is required.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="id">Email ID</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter Email ID" formControlName="email"
+            [class.is-invalid]="email.invalid && email.touched">
+            <small [class.d-none]="email.valid || email.untouched"  class="text-danger">Email is required.</small>
+        </div>
+
+        <div class="form-group">
+            <label for="number">Contact No.</label>
+            <input type="tel" name="number" class="form-control" placeholder="Enter Phone number" formControlName="number"
+            [class.is-invalid]="number.invalid && number.touched">
+            <div *ngIf="number.invalid && number.touched">
+                <!-- <small *ngIf="number.errors?.pattern" class="text-danger">Contact number must me 10 characters long.</small> -->
+                <small *ngIf="number.errors?.required"  class="text-danger">Contact number is required.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="hobby">Hobbies</label>
+            <button type="button" class="btn btn-light btn-sm" (click)="addHobby()">+</button>
+            <div formArrayName="hobby" *ngFor="let hb of hobby.controls; let i = index">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" [formControlName]="i">
+                    </div>
+                    <div class="col">
+                        <button type="button" class="btn btn-outline-danger" (click)="deleteHobby(i)">-</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <small [class.d-none]="hobby.valid || hobby.untouched"  class="text-danger">Hobby is required.</small> -->
+        </div>
+
+        <div class="form-group">
+            <label for="topic">Topic</label>
+            <select class="custom-select" name="topic" formControlName="topic"
+            [class.is-invalid]="topic.invalid && topic.touched">
+                <option value="default">Select a topic</option>
+                <option *ngFor="let topic of topics">{{ topic }}</option>
+              </select>
+              <small [class.d-none]="topic.valid || topic.untouched"  class="text-danger">Select one topic atleast.</small>
+        </div>
+
+        <div class="form-group" [class.is-invalid]="time.invalid && time.touched">
+            <label for="timePreference">Time preference</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="timePreference" value="morning" formControlName="timePreference">
+                <label class="form-check-label">Morning (9AM - 12PM)</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="timePreference" value="evening" formControlName="timePreference">
+                <label class="form-check-label">Evening (5PM - 8PM)</label>
+              </div>
+              <small [class.d-none]="time.valid || time.untouched"  class="text-danger">Select one Time preference atleast.</small>
+        </div>
+
+        <div class="container-fluid">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <span>&nbsp;&nbsp;</span>
+                <button class="btn btn-outline-info" type="button" #editBtn [hidden]="show" (click)="onedit()">Edit</button>
+          </div>
+    </form>
+</div>

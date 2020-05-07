@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<router-outlet>
+
+  <div class="container">
+    <h2>Dynamic Tabs</h2>
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a data-toggle="tab" href="#card">Cards</a></li>
+      <li>
+        <a data-toggle="tab" href="#aggrid">AG grid</a></li>
+        <li><a data-toggle="tab" href="#dynamicC">Dynamic Components</a></li>
+    </ul>
+  
+    <div class="tab-content">
+      <div id="card" class="tab-pane active">
+        <h3>Cards</h3>
+        <app-cards></app-cards>
+      </div>
+      <div id="aggrid" class="tab-pane">
+        <h3>AG grid</h3>
+        <app-ag-grid></app-ag-grid>
+      </div>
+      <div id="dynamicC" class="tab-pane">
+        <h3>Dynamic Components</h3>
+        <button class="btn btn-warning" (click)="createComps()">Generate a dynamic component</button>
+        <div class="container">
+          <br>
+          <ng-template #dynamicComponents>
+            <div class="row mt-5">
+
+            </div>
+          </ng-template>
+        </div>    
+      </div>
+    </div>
+  </div>
+</router-outlet>
