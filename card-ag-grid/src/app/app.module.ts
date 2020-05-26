@@ -11,6 +11,8 @@ import { AgGridModule } from "ag-grid-angular";
 import { ImageFormatterComponent } from './image-formatter/image-formatter.component';
 import { NgxPrintModule } from "ngx-print";
 import { DynamicCompComponent } from './dynamic-comp/dynamic-comp.component';
+import { ImageCropperComponent } from './image-cropper/image-cropper.component';
+import { ImageCropperModule } from "ngx-image-cropper";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { DynamicCompComponent } from './dynamic-comp/dynamic-comp.component';
     CardsComponent,
     AgGridComponent,
     ImageFormatterComponent,
-    DynamicCompComponent
+    DynamicCompComponent,
+    ImageCropperComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { DynamicCompComponent } from './dynamic-comp/dynamic-comp.component';
     HttpClientModule,
     NgxPaginationModule,
     AgGridModule.withComponents([ImageFormatterComponent] ),
-    NgxPrintModule
+    NgxPrintModule,
+    ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent],
